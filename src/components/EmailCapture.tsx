@@ -6,11 +6,26 @@ import { RiBellLine } from "react-icons/ri";
 export default function EmailCapture() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire to Supabase / Mailchimp / ConvertKit
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("https://formspree.io/f/xpwzgkqb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email, _subject: "New subscriber — breezydallas" }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -20,21 +35,25 @@ export default function EmailCapture() {
       <p className="text-muted text-sm mb-5">Get notified when new music drops.</p>
 
       {submitted ? (
-        <p className="text-gold font-heading font-semibold">You're on the list 🙌</p>
+        <p className="text-gold font-heading font-semibold">You&apos;re on the list 🙌</p>
       ) : (
-        <form onSubmit={handleSubmit} className="flex gap-2">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="your@email.com"
-            className="flex-1 bg-bg border border-white/10 rounded-full px-4 py-2.5 text-sm text-cream placeholder:text-muted focus:outline-none focus:border-gold/50"
-          />
-          <button type="submit" className="btn-gold whitespace-nowrap">
-            Notify Me
-          </button>
-        </form>
+        <>
+          {error && <p className="text-red-400 text-xs mb-3">{error}</p>}
+          <form onSubmit={handleSubmit} className="flex gap-2">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="flex-1 bg-bg border border-white/10 rounded-full px-4 py-2.5 text-sm text-cream placeholder:text-muted focus:outline-none focus:border-gold/50"
+              disabled={loading}
+            />
+            <button type="submit" className="btn-gold whitespace-nowrap" disabled={loading}>
+              {loading ? "…" : "Notify Me"}
+            </button>
+          </form>
+        </>
       )}
     </div>
   );

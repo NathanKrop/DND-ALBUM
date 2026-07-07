@@ -5,6 +5,7 @@ import { PlayerProvider } from "@/context/PlayerContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MiniPlayer from "@/components/MiniPlayer";
+import QueuePanel from "@/components/QueuePanel";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -45,7 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${poppins.variable} ${inter.variable} bg-bg text-cream antialiased`} style={{ fontFamily: "var(--font-inter), sans-serif" }}>
         <PlayerProvider>
           <Header />
-          <main className="min-h-screen pb-28">{children}</main>
+          <main className="min-h-screen pb-32">{children}</main>
+          <QueuePanel />
           <MiniPlayer />
           <Footer />
         </PlayerProvider>

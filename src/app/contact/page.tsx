@@ -17,17 +17,13 @@ export default function ContactPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/xpwzgkqb", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(form),
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
+      if (!res.ok) throw new Error("Failed to send message");
 
       setSubmitted(true);
       setForm({ name: "", email: "", type: "booking", message: "" });

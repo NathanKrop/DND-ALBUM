@@ -37,18 +37,17 @@ export default function AboutPage() {
 
           <div className="space-y-4 text-cream/80 text-sm leading-relaxed">
             <p>
-              breezydallas is an independent gospel hip-hop artist from Nairobi, Kenya, blending the reflective
-              lyricism of J. Cole and Kendrick Lamar with the faith-driven spirit of Lecrae, Kirk Franklin, and
-              Maverick City Music.
+              Breezydallas is an independent gospel hip-hop artist from Nairobi, Kenya, blending the reflective
+              lyricism inspired by life experiences, Faith and Hope of a better life.
             </p>
             <p>
               His music is cinematic and honest — rooted in real experiences of waiting, trusting, and ultimately
               seeing God come through. Every track is a testimony.
             </p>
             <p>
-              His debut album, <span className="text-gold font-semibold">Delayed Not Denied</span>, is a 12-track
-              journey through faith, doubt, perseverance, and praise. Recorded in Nairobi, it carries the heartbeat
-              of East Africa while speaking to a global audience.
+              His 2nd Studio Album, <span className="text-gold font-semibold">Delayed Not Denied</span>, is an
+              18-track journey through faith, doubt, perseverance, and praise. Recorded in Nairobi, it carries the
+              heartbeat of East Africa while speaking to a global audience.
             </p>
           </div>
 

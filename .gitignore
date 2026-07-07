@@ -15,4 +15,8 @@ dist
 *~
 .cache
 .vercel
-node_modules
+tsconfig.tsbuildinfo
+
+# Audio/media files — host on Cloudflare R2 or Supabase Storage instead
+public/audio/
+public/downloads/

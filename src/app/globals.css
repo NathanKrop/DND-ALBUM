@@ -21,28 +21,28 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #121722;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #e8c88c44;
+    background: #ffffff18;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #e8c88c88;
+    background: #e8c88c55;
   }
 }
 
 @layer components {
   .btn-gold {
-    @apply bg-gold text-bg font-heading font-bold px-6 py-3 rounded-full hover:bg-gold-dark transition-colors duration-200 text-sm tracking-wide;
+    @apply bg-gold text-bg font-heading font-bold px-6 py-3 rounded-full hover:bg-gold-dark transition-all duration-200 text-sm tracking-wide hover:scale-105 active:scale-95;
   }
 
   .btn-outline {
-    @apply border border-gold text-gold font-heading font-semibold px-6 py-3 rounded-full hover:bg-gold hover:text-bg transition-colors duration-200 text-sm tracking-wide;
+    @apply border border-gold/60 text-gold font-heading font-semibold px-6 py-3 rounded-full hover:bg-gold hover:text-bg transition-all duration-200 text-sm tracking-wide hover:scale-105 active:scale-95;
   }
 
   .card {
-    @apply bg-navy rounded-xl overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/10;
+    @apply bg-navy rounded-xl overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 hover:bg-[#1a2030];
   }
 
   .section-title {
@@ -50,14 +50,18 @@
   }
 }
 
-/* Audio player progress bar */
+/* Progress bar */
 .progress-bar {
   appearance: none;
   height: 4px;
   border-radius: 2px;
-  background: #8a8fa8;
+  background: #ffffff20;
   outline: none;
   cursor: pointer;
+  transition: height 0.15s ease;
+}
+.progress-bar:hover {
+  height: 6px;
 }
 .progress-bar::-webkit-slider-thumb {
   appearance: none;
@@ -66,4 +70,28 @@
   border-radius: 50%;
   background: #e8c88c;
   cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.progress-bar:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+/* Animated equalizer bars */
+@keyframes eq1 { 0%,100%{height:4px} 50%{height:14px} }
+@keyframes eq2 { 0%,100%{height:10px} 50%{height:4px} }
+@keyframes eq3 { 0%,100%{height:7px} 50%{height:14px} }
+
+.eq-bar-1 { animation: eq1 0.8s ease-in-out infinite; }
+.eq-bar-2 { animation: eq2 0.6s ease-in-out infinite; }
+.eq-bar-3 { animation: eq3 0.9s ease-in-out infinite; }
+
+/* Marquee scroll for long track names */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-text {
+  animation: marquee 8s linear infinite;
+  white-space: nowrap;
 }

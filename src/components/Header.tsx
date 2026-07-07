@@ -19,7 +19,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-bg/90 backdrop-blur-md border-b border-white/5">
+    <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2 font-heading font-bold text-gold text-lg tracking-tight">
           <RiMusicLine className="text-xl" />
