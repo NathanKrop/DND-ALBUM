@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { albums, bonusTracks } from "@/data/music";
+import { albums } from "@/data/music";
 import AlbumCard from "@/components/AlbumCard";
 import EmailCapture from "@/components/EmailCapture";
-import BonusTrackPlayer from "@/components/BonusTrackPlayer";
 import FeaturedTracks from "@/components/FeaturedTracks";
 import PlayAlbumButton from "@/components/PlayAlbumButton";
-import { RiDownloadLine, RiSpotifyLine, RiYoutubeLine } from "react-icons/ri";
+import { RiDownloadLine, RiYoutubeLine } from "react-icons/ri";
 
 export default function HomePage() {
   const featuredAlbum = albums[0];
@@ -32,7 +31,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-20 pt-32 w-full">
           <div className="max-w-xl">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold text-xs font-heading font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
-              Debut Album · 2024
+              2nd Studio Album · 2024
             </span>
             <h1 className="font-heading font-extrabold text-5xl sm:text-7xl text-cream leading-[1.05] mb-3">
               Delayed<br />Not Denied
@@ -70,18 +69,6 @@ export default function HomePage() {
 
       {/* Featured Tracks */}
       <FeaturedTracks album={featuredAlbum} />
-
-      {/* Bonus Track */}
-      {bonusTracks.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
-          <h2 className="section-title">Also Available</h2>
-          <div className="max-w-2xl">
-            {bonusTracks.map((bt) => (
-              <BonusTrackPlayer key={bt.id} track={bt} />
-            ))}
-          </div>
-        </section>
-      )}
 
       {/* Discography */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">

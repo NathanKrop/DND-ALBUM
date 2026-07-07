@@ -23,10 +23,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://breezydallas.com"),
   title: "breezydallas — Delayed Not Denied",
-  description: "Official music platform for breezydallas. Gospel hip-hop from Nairobi, Kenya. Stream and download 'Delayed Not Denied'.",
+  description: "Official music platform for breezydallas. Gospel hip-hop from Nairobi, Kenya. Stream and download 'Delayed Not Denied' — 2nd Studio Album.",
   openGraph: {
     title: "breezydallas — Delayed Not Denied",
-    description: "Faith-driven gospel hip-hop from Nairobi. Download the debut album.",
+    description: "Faith-driven gospel hip-hop from Nairobi. Stream the 2nd Studio Album.",
     url: "https://breezydallas.com",
     siteName: "breezydallas",
     images: [{ url: "/images/AlbumCover.jpeg", width: 1200, height: 630, alt: "Delayed Not Denied Album Cover" }],

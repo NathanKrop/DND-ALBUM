@@ -4,7 +4,7 @@ import { SiTiktok } from "react-icons/si";
 
 export const metadata = {
   title: "About — breezydallas",
-  description: "The story behind breezydallas and the debut album Delayed Not Denied.",
+  description: "The story behind breezydallas and the 2nd Studio Album, Delayed Not Denied.",
 };
 
 const socials = [
@@ -45,8 +45,8 @@ export default function AboutPage() {
               seeing God come through. Every track is a testimony.
             </p>
             <p>
-              His 2nd Studio Album, <span className="text-gold font-semibold">Delayed Not Denied</span>, is an
-              18-track journey through faith, doubt, perseverance, and praise. Recorded in Nairobi, it carries the
+              His 2nd Studio Album, <span className="text-gold font-semibold">Delayed Not Denied</span>, is a
+              16-track journey through faith, doubt, perseverance, and praise. Recorded in Nairobi, it carries the
               heartbeat of East Africa while speaking to a global audience.
             </p>
           </div>
