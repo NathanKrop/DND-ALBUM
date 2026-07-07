@@ -17,6 +17,8 @@ dist
 .vercel
 tsconfig.tsbuildinfo
 
-# Audio/media files — host on Cloudflare R2 or Supabase Storage instead
-public/audio/
+# Audio/media files — host large files on Cloudflare R2 or Supabase Storage
+public/audio/**/*.mp4
+public/audio/**/*.mpeg
+public/audio/**/*.wav
 public/downloads/
